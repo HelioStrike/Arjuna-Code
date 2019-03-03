@@ -30,7 +30,6 @@ int main()
         {
             curr_high = max(curr_high,ranges[i+1].second); i++;
         }
-        //cout << curr_low << " " << curr_high << '\n';
         tot -= curr_high-curr_low+1;
     }
     printf("%d\n",tot);

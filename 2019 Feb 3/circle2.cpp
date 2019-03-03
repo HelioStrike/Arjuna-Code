@@ -14,36 +14,29 @@ int main()
     FOR(i,start,end) upper+=a[i];
     FOR(i,end,start+n) lower+=a[i];
 
-    //cout << upper << " " << lower << '\n';
-
     int mindist=INF,sum,sum1,sum2;
     FOR(i,end,start+n+1)
     {
-
+        if(a[i]>=0 && a[i]!=end) break;
         FOR(j,end+n,n+i)
         {
-            //cout << i << " " << (start+n) << " " << (end+n) << " " << j << '\n';
             sum1=sum2=0;
             FOR(k,i,start+n) sum1+=a[k];
             FOR(k,end+n,j) sum2+=a[k];
             sum=2*sum1+upper+2*sum2;
-            //cout << sum << '\n';
             mindist=min(mindist,sum);
         }
     }
 
-    //cout << "----------" << '\n';
     FOR(i,start+n,end+n+1)
     {
-
+        if(a[i]>=0 && a[i]!=start+n) break;
         FOR(j,2*n+start,n+i+1)
         {
-            //cout << (i) << " " << (end+n) << " " << (2*n+start) << " " << (j) << '\n';
             sum1=sum2=0;
             FOR(k,i,end+n) sum1+=a[k];
             FOR(k,2*n+start,j) sum2+=a[k];
             sum=2*sum1+lower+2*sum2;
-            //cout << sum << '\n';
             mindist=min(mindist,sum);
         }
     }
